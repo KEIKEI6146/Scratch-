@@ -1,26 +1,57 @@
+@charset "utf-8"; /*追加: 文字コード「UTF-8」*/
+
+@keyframes color {
+  0% { background-color: #00ffd0; }
+  20% { background-color: #00e5ff; }
+  40% { background-color: #00b7ff; }
+  60% { background-color: hsl(206, 100%, 50%); }
+  80% { background-color: hsl(189, 100%, 50%); }
+  100% { background-color: #00fff7; }
+}/*全体的に寒色にしてみました*/
+
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #333;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0 4%;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   text-align: center;
-  background-image: url('./back.png');
+  background-image: url('img/back.png');
   background-repeat: repeat;
   background-size: cover;
 }
 
-main{
-  width: 80%;
+main {
+  max-width: 1300px;
+  margin: auto;
+  align-items: center;
 }
 
-footer{
-  background-color: grey;
-  width: 100%;
+/*h1,h2,h3プロパティを追加*/
+
+h1{
+  background: linear-gradient(180deg, rgb(255, 179, 0), rgb(250, 255, 109));
+  color: rgba(255, 255, 255);
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+h2{
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h3{
+  font-size: 30px;
+  
+}
+
+h4 {
+  font-size: 20px; /* 修正: 'size'を'font-size'に変更 */
+  background-color: #fff;
 }
 
 ul {
@@ -28,20 +59,39 @@ ul {
   padding: 0;
 }
 
+p{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .project {
-  width: 20%;
-  margin: 0 auto;
+  background-color: white;
+  align-items: center;
+  padding: 4%;
+  margin-bottom: 3%;
+  box-shadow: 0 5px 5px rgb(110, 110, 110); /* 追加: ボックスシャドウ */
+  border-radius: 10px; /* 追加: 角を丸くする */
+}
+
+.project:hover {
+  background-color: #e74c3c;
+  animation: color 10s infinite;
+}
+
+.project h4{
+  border-radius: 10px;
 }
 
 .project video {
-  width: 20%;
-  height: auto;
+  width: 100%;
+  border-radius: 10px; /* 追加: ビデオの角を丸くする */
 }
 
 .project h3, .project h4 {
   margin: 10px 0;
 }
-
+/*公開時に.project ulは消す*/
 .project ul {
   text-align: left;
   margin: 10px 0;
@@ -51,22 +101,26 @@ ul {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background: linear-gradient(180deg, rgb(0, 119, 255), rgb(255, 109, 245));
+  background: linear-gradient(180deg, rgb(255, 0, 0), rgb(250, 255, 109));
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
 }
 
-footer{
-  margin: 0px;
-}
-
 .project a:hover {
-  background: linear-gradient(180deg, rgb(80, 134, 185), rgb(179, 83, 174));
+  background: linear-gradient(180deg, rgb(185, 80, 80), rgb(122, 153, 0));
 }
 
-@media (min-width: 300px){
+@media (min-width: 768px) {
   body {
     justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+  .projectgroup {
+    display: flex; /* 追加: フレックスボックスを適用 */
+    flex-direction: row;/*追加: 横一列表示*/
+    flex-wrap: nowwrap;/*変更: warpからnowwarp*/
+    gap: 10px; /* 追加: プロジェクト間のスペース */
   }
 }
